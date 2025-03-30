@@ -1,0 +1,124 @@
+<style>
+
+footer {
+    background-color: #222; 
+    color: #e0e0e0; 
+    padding: 20px 30px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    flex-wrap: wrap;
+    gap: 20px;
+    border-top: 2px solid #ff6347; 
+    font-family: Arial, sans-serif; 
+    position: fixed; 
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    margin: 0 auto; 
+}
+
+
+footer div {
+    flex: 1;
+    min-width: 150px; 
+    margin-bottom: 10px; 
+}
+
+
+footer p {
+    font-size: 13px; 
+    line-height: 1.5; 
+    margin: 5px 0;
+}
+
+footer p a {
+    color: #ff6347; 
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer p a:hover {
+    color: #fff; 
+    text-decoration: underline;
+}
+
+
+footer .contact, footer .about {
+    flex: 1;
+}
+
+footer .contact p a:hover {
+    color: #ff6347;
+}
+
+
+footer .social-icons {
+    display: flex;
+    justify-content: flex-start; 
+    gap: 15px;
+    margin-top: 10px;
+}
+
+footer .social-icons a {
+    color: #ff6347;
+    font-size: 18px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+footer .social-icons a:hover {
+    color: #fff;
+    transform: scale(1.2);
+}
+
+
+footer .social-icons a {
+    background-color: #333;
+    padding: 8px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    transition: all 0.3s ease;
+}
+
+footer .social-icons a:hover {
+    background-color: #ff6347;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+
+@media screen and (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 15px 20px; 
+    }
+
+    footer div {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .social-icons {
+        justify-content: center; 
+    }
+}
+</style>
+
+<footer class="dark-mode">
+    <div>
+        <p><strong>Contact Us</strong></p>
+        <p>Phone: <a href="tel:+92 331-4413 874"> +92 331-4413 874 </a></p>
+        <p>Email: <a href="mailto:ahmarshah170@gmail.com">ahmarshah170@gmail.com</a></p>
+        <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a></p>
+    </div>
+    <div>
+        <p><strong>About Us</strong></p>
+        <p>We are Pakistan's leading online store offering high-quality products at affordable prices. Our mission is to make shopping convenient and accessible for everyone in Pakistan.</p>
+    </div>
+</footer>

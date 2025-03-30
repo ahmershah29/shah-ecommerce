@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Information - SHAH | Your Favorite Online Store in Pakistan</title>
+    
+    
+    <link rel="icon" href="Images/static/favicon.png" type="image/x-icon">
+
+    
+    <meta name="description" content="Manage your SHAH Store account settings, update profile information, and view your recent activity. Secure account management portal for SHAH customers.">
+    <meta name="keywords" content="SHAH store, account management, profile settings, user account, SHAH profile">
+    <meta name="author" content="SHAH">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+
+    
+    <meta property="og:title" content="Account Information - SHAH | Your Favorite Online Store in Pakistan">
+    <meta property="og:description" content="Manage your SHAH Store account settings and profile information securely.">
+    <meta property="og:image" content="https://shah.com/images/shah-logo.png">
+    <meta property="og:url" content="https://shah.com/account-info">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="SHAH">
+
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Account Information - SHAH Store">
+    <meta name="twitter:description" content="Manage your SHAH Store account settings securely.">
+    <meta name="twitter:image" content="https://shah.com/images/shah-logo.png">
+
+    
+    <link rel="canonical" href="https://shah.com/account-info">
+
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff6347;
+            --secondary: #4ecdc4;
+            --dark: #1c1c1c;
+            --light: #f8f8f8;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--dark);
+            color: var(--light);
+            padding: 15px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-bottom: 2px solid var(--primary);
+            width: 100%;
+        }
+
+        header .logo {
+            font-size: 26px;
+            font-weight: bold;
+            color: #ffffff;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        header .logo:hover {
+            color: #ff6347;
+            text-shadow: 0 0 25px rgba(255, 99, 71, 1);
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding-top: 70px;
+        }
+
+        main.container {
+            flex: 1;
+            background-color: #333;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 99, 71, 0.3);
+            margin: 15px auto;
+            width: calc(100% - 30px);
+            max-width: 1200px;
+            overflow-x: hidden;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-section {
+            background: #444;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .form-section h2 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .form-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--secondary);
+        }
+
+        .floating-label {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .floating-label input {
+            width: 100%;
+            padding: 1.5rem;
+            border: 2px solid #555;
+            border-radius: 0.75rem;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .floating-label input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(255, 99, 71, 0.2);
+        }
+
+        .floating-label label {
+            position: absolute;
+            left: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            padding: 0 0.5rem;
+            color: rgba(255, 255, 255, 0.6);
+            transition: all 0.3s ease;
+            pointer-events: none;
+            font-size: 1.2rem;
+        }
+
+        .floating-label input:focus + label,
+        .floating-label input:not(:placeholder-shown) + label {
+            top: -0.75rem;
+            transform: translateY(0) scale(0.85);
+            color: var(--primary);
+            background: var(--dark);
+            padding: 0 0.5rem;
+        }
+
+        .floating-label input::placeholder {
+            color: transparent;
+        }
+
+        .floating-label input:focus::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        button {
+            background: linear-gradient(135deg, var(--primary) 0%, #ff8b7e 100%);
+            border: none;
+            padding: 1.5rem 3rem;
+            color: white;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 99, 71, 0.2);
+        }
+
+        button .material-icons-round {
+            font-size: 1.5rem;
+        }
+
+        footer {
+            background-color: #222;
+            color: #e0e0e0;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            border-top: 2px solid #ff6347;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        footer div {
+            flex: 1;
+            min-width: 150px;
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            font-size: 13px;
+            line-height: 1.5;
+            margin: 5px 0;
+        }
+
+        footer p a {
+            color: #ff6347;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer p a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            body { padding-top: 60px; }
+            header { padding: 15px 20px; }
+            header .logo { font-size: 22px; }
+
+            main.container {
+                margin: 10px;
+                padding: 10px;
+                width: calc(100% - 20px);
+            }
+
+            .page-header h1 { font-size: 2.5rem; }
+
+            footer {
+                text-align: center;
+                flex-direction: column;
+            }
+
+            footer div { width: 100%; }
+        }
+
+        @media (max-width: 480px) {
+            header .logo { font-size: 20px; }
+            main.container {
+                margin: 5px;
+                padding: 8px;
+                width: calc(100% - 10px);
+            }
+            .page-header h1 {
+                font-size: 2rem;
+                margin-bottom: 20px;
+            }
+        }
+
+        
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1000;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .notification.success {
+            background: #4BB543;
+        }
+
+        .notification.error {
+            background: #ff4444;
+        }
+
+        .error-message {
+            color: #ff4444;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Account Information - SHAH",
+        "description": "Manage your SHAH Store account settings and profile information securely.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "SHAH",
+            "logo": "https://shah.com/images/shah-logo.png"
+        },
+        "url": "https://shah.com/account-info"
+    }
+    </script>
+
+    
+    <header role="banner">
+        <nav role="navigation">
+            <div class="logo" aria-label="SHAH Store Logo">SHAH</div>
+        </nav>
+    </header>
+
+    
+    <main class="container mt-5" role="main">
+        <div class="page-header">
+            <h1>Account Information</h1>
+            <p class="lead text-center text-light">Manage your account settings and profile information</p>
+        </div>
+        <section class="form-section" aria-labelledby="account-details-heading">
+            <h2 id="account-details-heading">Account Details</h2>
+            <form id="account-form">
+                <div class="floating-label">
+                    <input type="text" id="name" placeholder=" " required autocomplete="name">
+                    <label for="name">Full Name</label>
+                    <div class="error-message" id="name-error"></div>
+                </div>
+                <div class="floating-label">
+                    <input type="email" id="email" placeholder=" " required autocomplete="email">
+                    <label for="email">Email Address</label>
+                    <div class="error-message" id="email-error"></div>
+                </div>
+                <button type="submit">
+                    <span class="material-icons-round">save</span>
+                    Save Changes
+                </button>
+            </form>
+        </section>
+        <section class="form-section" aria-labelledby="security-settings-heading">
+            <h2 id="security-settings-heading">Security Settings</h2>
+            <form id="password-form">
+                <div class="floating-label">
+                    <input type="password" id="old-password" placeholder=" " required>
+                    <label for="old-password">Current Password</label>
+                    <div class="error-message" id="old-password-error"></div>
+                </div>
+                <div class="floating-label">
+                    <input type="password" id="new-password" placeholder=" " required>
+                    <label for="new-password">New Password</label>
+                    <div class="error-message" id="new-password-error"></div>
+                </div>
+                <div class="floating-label">
+                    <input type="password" id="confirm-password" placeholder=" " required>
+                    <label for="confirm-password">Confirm Password</label>
+                    <div class="error-message" id="confirm-password-error"></div>
+                </div>
+                <button type="submit">
+                    <span class="material-icons-round">save</span>
+                    Update Password
+                </button>
+            </form>
+        </section>
+        <section class="form-section" aria-labelledby="recent-activity-heading">
+            <h2 id="recent-activity-heading">Recent Activity</h2>
+            <div class="activity-list">
+                <div class="activity-item">
+                    <p>Your order history will be displayed here</p>
+                </div>
+            </div>
+        </section>
+        <div id="message" role="alert" aria-live="polite"></div>
+        <div id="notification" class="notification"></div>
+    </main>
+
+    
+    <footer role="contentinfo">
+        <div>
+            <h2 class="h6"><strong>Contact Us</strong></h2>
+            <p>Phone: <a href="tel:+92 331-4413 874" aria-label="Call us">+92 331-4413 874</a></p>
+            <p>Email: <a href="mailto:ahmarshah170@gmail.com" aria-label="Email us">ahmarshah170@gmail.com</a></p>
+            <p><a href="privacy-policy.html" aria-label="Privacy Policy">Privacy Policy</a> | <a href="terms-of-service.html" aria-label="Terms of Service">Terms of Service</a></p>
+        </div>
+        <div>
+            <h2 class="h6"><strong>About Us</strong></h2>
+            <p>We are Pakistan's leading online store offering high-quality products at affordable prices. Our mission is to make shopping convenient and accessible for everyone in Pakistan.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            document.querySelectorAll('.floating-label input').forEach(input => {
+                input.addEventListener('input', () => {
+                    const label = input.nextElementSibling;
+                    if (input.value.trim() !== '') {
+                        label.classList.add('active');
+                    } else {
+                        label.classList.remove('active');
+                    }
+                });
+            });
+
+
+            const accountForm = document.getElementById('account-form');
+            const passwordForm = document.getElementById('password-form');
+            const message = document.getElementById('message');
+            const notification = document.getElementById('notification');
+
+            accountForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const button = this.querySelector('button');
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const nameError = document.getElementById('name-error');
+                const emailError = document.getElementById('email-error');
+
+                nameError.textContent = '';
+                emailError.textContent = '';
+
+                if (!name) {
+                    nameError.textContent = 'Full Name is required.';
+                    return;
+                }
+
+                if (!validateEmail(email)) {
+                    emailError.textContent = 'Invalid email address.';
+                    return;
+                }
+
+                setLoading(button, true);
+
+
+                await new Promise(resolve => setTimeout(resolve, 1000));
+
+                showMessage('Account updated successfully!', 'success');
+                showNotification('Account updated successfully!', 'success');
+                setLoading(button, false);
+            });
+
+            passwordForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const oldPass = document.getElementById('old-password').value.trim();
+                const newPass = document.getElementById('new-password').value.trim();
+                const confirmPass = document.getElementById('confirm-password').value.trim();
+                const oldPassError = document.getElementById('old-password-error');
+                const newPassError = document.getElementById('new-password-error');
+                const confirmPassError = document.getElementById('confirm-password-error');
+
+                oldPassError.textContent = '';
+                newPassError.textContent = '';
+                confirmPassError.textContent = '';
+
+                if (!oldPass) {
+                    oldPassError.textContent = 'Current Password is required.';
+                    return;
+                }
+
+                if (newPass.length < 8) {
+                    newPassError.textContent = 'New Password must be at least 8 characters long.';
+                    return;
+                }
+
+                if (newPass !== confirmPass) {
+                    confirmPassError.textContent = 'Passwords do not match.';
+                    return;
+                }
+
+                const button = this.querySelector('button');
+                setLoading(button, true);
+
+
+                await new Promise(resolve => setTimeout(resolve, 1000));
+
+                showMessage('Password updated successfully!', 'success');
+                showNotification('Password updated successfully!', 'success');
+                setLoading(button, false);
+                passwordForm.reset();
+            });
+
+            function validateEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(String(email).toLowerCase());
+            }
+
+            function showMessage(text, type) {
+                message.textContent = text;
+                message.style.display = 'flex';
+                message.style.background = type === 'success' ? '#4BB543' : '#ff4444';
+                setTimeout(() => message.style.display = 'none', 3000);
+            }
+
+            function showNotification(text, type) {
+                notification.textContent = text;
+                notification.className = `notification ${type} show`;
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 3000);
+            }
+
+            function setLoading(button, isLoading) {
+                if (isLoading) {
+                    button.disabled = true;
+                    button.innerHTML = '<span class="material-icons-round loading">sync</span> Processing...';
+                } else {
+                    button.disabled = false;
+                    button.innerHTML = '<span class="material-icons-round">save</span> Save Changes';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <title>Shopping Cart - SHAH Online Store | Pakistan's Premium Shopping Destination</title>
+    <meta name="description" content="View and manage your shopping cart at SHAH Online Store. Safe checkout, multiple payment options, and the best prices in Pakistan for premium products.">
+    <meta name="keywords" content="shopping cart, SHAH store, online shopping Pakistan, checkout, secure payment">
+    <meta name="author" content="SHAH">
+    <meta name="robots" content="index, follow">
+    
+    
+    <meta property="og:title" content="Shopping Cart - SHAH Online Store">
+    <meta property="og:description" content="Complete your purchase at SHAH Online Store - Pakistan's leading destination for premium products.">
+    <meta property="og:image" content="https://www.shahstore.com/images/logo.png">
+    <meta property="og:url" content="https://www.shahstore.com/cart">
+    <meta property="og:type" content="website">
+    
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Shopping Cart - SHAH Online Store">
+    <meta name="twitter:description" content="Complete your purchase at SHAH Online Store - Pakistan's leading destination for premium products.">
+    <meta name="twitter:image" content="https://www.shahstore.com/images/logo.png">
+    
+    
+    <link rel="canonical" href="https://www.shahstore.com/cart">
+    
+    
+    <link rel="icon" type="image/png" href="Images/static/favicon.png">
+    <link rel="apple-touch-icon" href="Images/static/favicon.png">
+
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "OnlineStore",
+        "name": "SHAH Online Store",
+        "description": "Pakistan's Premium Shopping Destination",
+        "url": "https://www.shahstore.com",
+        "telephone": "+92 331-4413 874",
+        "email": "ahmarshah170@gmail.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "Pakistan"
+        },
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.shahstore.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+
+    <style>
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html, body {
+    margin: 0;
+    padding: 0; 
+    font-family: Arial, sans-serif;
+    background-color: #222;
+    color: #e0e0e0;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1c1c1c; 
+    color: #f8f8f8; 
+    padding: 20px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    border-bottom: 2px solid #ff6347; 
+}
+
+
+header .logo {
+    font-size: 26px; 
+    font-weight: bold;
+    color: #ffffff;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+}
+
+header .logo:hover {
+    color: #ff6347;
+    text-shadow: 0 0 25px rgba(255, 99, 71, 1);
+}
+
+
+h1 {
+    text-align: center; 
+    margin-bottom: 20px;
+    font-size: 2.5rem; 
+    font-weight: 700; 
+    color: #ff6347; 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    position: relative; 
+}
+
+
+h1::after {
+    content: "";
+    display: block;
+    width: 80px; 
+    height: 4px; 
+    background-color: #ff6347; 
+    margin: 10px auto 0; 
+    border-radius: 2px; 
+    opacity: 0.9; 
+}
+
+
+h1 {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 2rem; 
+        letter-spacing: 1.5px; 
+    }
+
+    h1::after {
+        width: 60px; 
+    }
+}
+
+
+.cart-items {
+    display: flex;
+    flex-direction: column; 
+    gap: 15px; 
+    background-color: #333; 
+    padding: 20px;
+    border: 2px solid #ff6347; 
+    border-radius: 10px; 
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1); 
+    margin-bottom: 20px;
+    transition: all 0.3s ease; 
+    width: 100%;
+    max-width: 600px;
+}
+
+
+.cart-item {
+    display: flex;
+    align-items: center; 
+    gap: 15px; 
+    border-bottom: 1px solid #444; 
+    padding-bottom: 10px;
+}
+
+
+.cart-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+
+.cart-item img {
+    width: 100px; 
+    height: auto; 
+    border-radius: 8px; 
+}
+
+
+.cart-item-details {
+    display: flex;
+    flex-direction: column; 
+    gap: 5px; 
+}
+
+
+.cart-item h3 {
+    font-size: 1.2rem; 
+    font-weight: 700;
+    color: #ff6347; 
+    margin: 0;
+}
+
+
+.cart-item p {
+    font-size: 0.95rem;
+    color: #e0e0e0;
+    margin: 0;
+    line-height: 1.4; 
+}
+
+
+.cart-item .price {
+    font-size: 1.1rem;
+    font-weight: 600; 
+    color: #e0e0e0; 
+}
+
+
+@media screen and (max-width: 768px) {
+    .cart-items {
+        padding: 15px; 
+        border-radius: 8px; 
+    }
+
+    .cart-item h3 {
+        font-size: 1rem; 
+    }
+
+    .cart-item p,
+    .cart-item .price {
+        font-size: 0.9rem; 
+    }
+}
+
+
+.cart-actions {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 15px; 
+    width: 100%;
+    max-width: 600px; 
+}
+
+
+.cart-actions .continue-shopping,
+.cart-actions .checkout,
+.cart-actions .clear-cart {
+    flex: 1; 
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 0; 
+    white-space: nowrap; 
+}
+
+
+.cart-actions .continue-shopping {
+    background: linear-gradient(90deg, #ff6347, #ff8267);
+}
+
+.cart-actions .checkout {
+    background: linear-gradient(90deg, #ff8267, #ff6347);
+}
+
+.cart-actions .clear-cart {
+    background: linear-gradient(90deg, #ff4444, #ff6666);
+}
+
+
+.cart-actions .continue-shopping:hover,
+.cart-actions .checkout:hover,
+.cart-actions .clear-cart:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+@media screen and (max-width: 768px) {
+    .cart-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .cart-actions .continue-shopping,
+    .cart-actions .checkout,
+    .cart-actions .clear-cart {
+        width: 100%;
+        padding: 15px 20px; 
+    }
+}
+
+
+.cart-item button {
+    padding: 5px 10px; 
+    font-size: 0.9rem; 
+    font-weight: 600; 
+    color: #fff;
+    background-color: #ff6347; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer;
+    transition: all 0.3s ease; 
+    margin-right: 5px; 
+}
+
+
+.cart-item button:hover {
+    background-color: #e55341; 
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+
+@media screen and (max-width: 768px) {
+    .cart-actions {
+        flex-direction: column; 
+        gap: 10px; 
+    }
+
+    .cart-actions .continue-shopping,
+    .cart-actions .checkout {
+        width: 100%; 
+    }
+}
+
+
+.total-section {
+    text-align: center;
+    background-color: #333; 
+    padding: 30px; 
+    border: 2px solid #ff6347; 
+    border-radius: 12px; 
+    margin-bottom: 20px;
+    font-size: 1.4rem; 
+    font-weight: 700; 
+    color: #e0e0e0; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    width: 100%;
+    max-width: 600px;
+}
+
+
+.total-section::before {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 4px;
+    background-color: #ff6347; 
+    margin: 0 auto 15px; 
+    border-radius: 2px;
+}
+
+
+footer {
+    background-color: #1c1c1c; 
+    color: #e0e0e0; 
+    padding: 20px 30px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    flex-wrap: wrap;
+    gap: 20px;
+    border-top: 2px solid #ff6347; 
+}
+
+
+footer div {
+    flex: 1;
+    min-width: 150px; 
+    margin-bottom: 10px; 
+}
+
+
+footer p {
+    font-size: 13px; 
+    line-height: 1.5; 
+    margin: 5px 0;
+}
+
+footer p a {
+    color: #ff6347; 
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer p a:hover {
+    color: #fff; 
+    text-decoration: underline;
+}
+
+
+footer .contact, footer .about {
+    flex: 1;
+}
+
+footer .contact p a:hover {
+    color: #ff6347;
+}
+
+
+footer .social-icons {
+    display: flex;
+    justify-content: flex-start; 
+    gap: 15px;
+    margin-top: 10px;
+}
+
+footer .social-icons a {
+    color: #ff6347;
+    font-size: 18px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+footer .social-icons a:hover {
+    color: #fff;
+    transform: scale(1.2);
+}
+
+
+footer .social-icons a {
+    background-color: #333;
+    padding: 8px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    transition: all 0.3s ease;
+}
+
+footer .social-icons a:hover {
+    background-color: #ff6347;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+
+@media screen and (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 15px 20px; 
+    }
+
+    footer div {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .social-icons {
+        justify-content: center; 
+    }
+}
+
+.variant-info {
+    color: #aaa;
+    font-size: 0.9rem;
+    margin: 5px 0;
+    font-style: italic;
+}
+
+.clear-cart {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(90deg, #ff4444, #ff6666);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.clear-cart:hover {
+    background: linear-gradient(90deg, #ff6666, #ff4444);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 768px) {
+    .clear-cart {
+        width: 100%;
+    }
+}
+    </style>
+    
+</head>
+<body>
+
+<header role="banner">
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="logo">SHAH</div>
+    </nav>
+</header>
+
+<main role="main" class="main-content">
+    
+    <h1>Your Shopping Cart</h1>
+
+    
+    <section aria-label="Cart Items" class="cart-items" id="cart-items">
+        
+    </section>
+
+    
+    <section aria-label="Cart Actions" class="cart-actions">
+        <a href="index.html" class="continue-shopping" aria-label="Continue Shopping">Continue Shopping</a>
+        <button class="checkout" aria-label="Proceed to Checkout">Proceed to Checkout</button>
+        <button class="clear-cart" onclick="clearCart()" aria-label="Clear Cart">Clear Cart</button>
+    </section>
+
+    
+    <section aria-label="Cart Total" class="total-section">
+        <p>Total Amount: PKR <span id="total-price">0</span></p>
+    </section>
+
+    
+    <section aria-label="Product List" id="product-list">
+        
+    </section>
+</main>
+
+ 
+ <footer role="contentinfo">
+    <div>
+        <p><strong>Contact Us</strong></p>
+        <p>Phone: <a href="tel:+92 331-4413 874"> +92 331-4413 874 </a></p>
+        <p>Email: <a href="mailto:ahmarshah170@gmail.com">ahmarshah170@gmail.com</a></p>
+        <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a></p>
+    </div>
+    <div>
+        <p><strong>About Us</strong></p>
+        <p>We are Pakistan's leading online store offering high-quality products at affordable prices. Our mission is to make shopping convenient and accessible for everyone in Pakistan.</p>
+    </div>
+</footer>
+
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+<script>
+
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+
+
+function addToCart(product) {
+    const existingProduct = cart.find(item => item.name === product.name);
+
+    if (existingProduct) {
+        existingProduct.quantity += 1; // Increase quantity if product already in cart
+    } else {
+        cart.push({ ...product, quantity: 1 }); // Add product with quantity 1 if it's not in cart
+    }
+
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartDisplay();
+}
+
+
+function updateCartDisplay() {
+    const cartItemsContainer = document.getElementById('cart-items');
+    const totalPriceElement = document.getElementById('total-price');
+    
+
+    cartItemsContainer.innerHTML = '';
+
+    let totalPrice = 0;
+
+    if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<p style="text-align: center; padding: 20px;">Your cart is empty</p>';
+    } else {
+        cart.forEach(item => {
+            const cartItem = document.createElement('div');
+            cartItem.classList.add('cart-item');
+            cartItem.innerHTML = `
+                <img src="${item.image}" alt="${item.name}">
+                <div class="cart-item-details">
+                    <h3>${item.name}</h3>
+                    <p class="variant-info">Size: ${item.size} | Color: ${item.color}</p>
+                    <p>PKR ${item.price} x ${item.quantity}</p>
+                    <div>
+                        <button class="increase" onclick="changeQuantity('${item.variantId}', 1)">+</button>
+                        <button class="decrease" onclick="changeQuantity('${item.variantId}', -1)">-</button>
+                        <button class="remove" onclick="removeItem('${item.variantId}')">Remove</button>
+                    </div>
+                </div>
+            `;
+            cartItemsContainer.appendChild(cartItem);
+            totalPrice += item.price * item.quantity;
+        });
+    }
+
+
+    totalPriceElement.textContent = totalPrice.toLocaleString();
+}
+
+
+function changeQuantity(variantId, change) {
+    const product = cart.find(item => item.variantId === variantId);
+    if (product) {
+        product.quantity += change;
+        if (product.quantity <= 0) {
+            removeItem(variantId); // Remove item if quantity goes to 0
+        } else {
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartDisplay(); // Update cart display after changing quantity
+        }
+    }
+}
+
+
+function removeItem(variantId) {
+    cart = cart.filter(item => item.variantId !== variantId);
+    localStorage.setItem('cart', JSON.stringify(cart)); // Update cart in localStorage
+    updateCartDisplay(); // Update cart display after removal
+}
+
+
+function clearCart() {
+    if (confirm('Are you sure you want to clear your cart?')) {
+
+        cart = [];
+
+        localStorage.removeItem('cart');
+
+        updateCartDisplay();
+    }
+}
+
+
+function displayProducts() {
+    const productListContainer = document.getElementById('product-list');
+    const products = JSON.parse(localStorage.getItem('products')) || []; // Get the list of products added by the user (from e-commerce site)
+    
+
+    productListContainer.innerHTML = '';
+
+
+    products.forEach((product) => {
+        const productElement = document.createElement('div');
+        productElement.classList.add('product-item');
+        productElement.innerHTML = `
+            <img src="${product.image}" alt="${product.name}">
+            <p>${product.name} - PKR ${product.price}</p>
+            <button class="add-to-cart" onclick="addToCart(product)">Add to Cart</button>
+        `;
+        productListContainer.appendChild(productElement);
+    });
+}
+
+
+updateCartDisplay();
+displayProducts();
+
+</script>
+</body>
+</html>

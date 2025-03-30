@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Wishlist - SHAH | Your Favorite Online Store in Pakistan</title>
+    
+    <meta name="description" content="Manage your wishlist at SHAH - Pakistan's premier online store. Save your favorite products, compare prices, and shop with ease. Best prices guaranteed!">
+    <meta name="keywords" content="wishlist, SHAH store, online shopping Pakistan, save items, favorite products, shopping list, product wishlist, Pakistan ecommerce">
+    <meta name="author" content="SHAH">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+
+    <meta property="og:title" content="My Wishlist - SHAH | Your Favorite Online Store in Pakistan">
+    <meta property="og:description" content="Manage your wishlist at SHAH - Pakistan's premier online store. Save your favorite products, compare prices, and shop with ease.">
+    <meta property="og:image" content="https://shah.com/images/shah-logo.png">
+    <meta property="og:url" content="https://shah.com/wishlist">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="SHAH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="My Wishlist - SHAH Store">
+    <meta name="twitter:description" content="Manage your wishlist at SHAH - Pakistan's premier online store.">
+    <meta name="twitter:image" content="https://shah.com/images/shah-logo.png">
+
+    <link rel="canonical" href="https://shah.com/wishlist">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff6347;
+            --secondary: #4ecdc4;
+            --dark: #1c1c1c;
+            --light: #f8f8f8;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--dark);
+            color: var(--light);
+            padding: 15px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-bottom: 2px solid var(--primary);
+            width: 100%;
+        }
+
+        header .logo {
+            font-size: 26px;
+            font-weight: bold;
+            color: #ffffff;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        header .logo:hover {
+            color: #ff6347;
+            text-shadow: 0 0 25px rgba(255, 99, 71, 1);
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            font-family: 'Roboto', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding-top: 70px;
+        }
+
+        main.container {
+            flex: 1;
+            background-color: #333;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 99, 71, 0.3);
+            margin: 15px auto;
+            width: calc(100% - 30px);
+            max-width: 1200px;
+            overflow-x: hidden;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .wishlist-items {
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .wishlist-item {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #444;
+            border-radius: 12px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .wishlist-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(255, 99, 71, 0.2);
+        }
+
+        .wishlist-item img {
+            flex: 0 0 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .wishlist-item-details {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .wishlist-item-details h3 {
+            color: var(--light);
+            margin: 8px 0;
+        }
+
+        .price {
+            font-size: 1.2rem;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .wishlist-item-actions {
+            flex: 0 0 200px;
+        }
+
+        .wishlist-item-actions button {
+            width: 100%;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            margin: 5px 0;
+        }
+
+        .move-to-cart {
+            background-color: #ff6347;
+            color: white;
+        }
+
+        .move-to-cart:hover {
+            background-color: #e5533b;
+            transform: scale(1.02);
+        }
+
+        .remove-from-wishlist {
+            background-color: #444;
+            color: #ff6347;
+            border: 2px solid #ff6347 !important;
+        }
+
+        .remove-from-wishlist:hover {
+            background-color: #ff6347;
+            color: white;
+        }
+
+        .toast {
+            position: fixed;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 400px;
+            min-width: auto;
+            padding: 16px 24px;
+            border-radius: 12px;
+            z-index: 1001;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            font-weight: 500;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-left: 5px solid;
+            background-color: rgba(255, 255, 255, 0.95);
+            color: #333;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .toast.success { border-left-color: #28a745; }
+        .toast.error { border-left-color: #dc3545; }
+        .toast-icon { font-size: 20px; }
+        .toast-message { flex-grow: 1; }
+
+        .toast-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            background: rgba(0, 0, 0, 0.1);
+            animation: progress 3s linear;
+        }
+
+        footer {
+            background-color: #222;
+            color: #e0e0e0;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            border-top: 2px solid #ff6347;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        footer div {
+            flex: 1;
+            min-width: 150px;
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            font-size: 13px;
+            line-height: 1.5;
+            margin: 5px 0;
+        }
+
+        footer p a {
+            color: #ff6347;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer p a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 10px rgba(255, 99, 71, 0.3); }
+            to { box-shadow: 0 0 20px rgba(255, 99, 71, 0.6); }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes progress {
+            from { width: 100%; }
+            to { width: 0%; }
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; transform: translateX(0); }
+            to { opacity: 0; transform: translateX(100%); }
+        }
+
+        @media (max-width: 768px) {
+            body { padding-top: 60px; }
+            header { padding: 15px 20px; }
+            header .logo { font-size: 22px; }
+
+            main.container {
+                margin: 10px;
+                padding: 10px;
+                width: calc(100% - 20px);
+            }
+
+            .page-header h1 { font-size: 2rem; }
+
+            .wishlist-item {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px 10px;
+            }
+
+            .wishlist-item img {
+                margin: 0 auto;
+                width: 120px;
+                height: 120px;
+            }
+
+            .wishlist-item-details {
+                width: 100%;
+                padding: 10px 0;
+                text-align: center;
+            }
+
+            .wishlist-item-actions {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .move-to-cart, .remove-from-wishlist {
+                padding: 15px;
+                font-size: 1rem;
+            }
+
+            footer {
+                text-align: center;
+                flex-direction: column;
+            }
+
+            footer div { width: 100%; }
+        }
+
+        @media (max-width: 480px) {
+            header .logo { font-size: 20px; }
+            main.container {
+                margin: 5px;
+                padding: 8px;
+                width: calc(100% - 10px);
+            }
+            .page-header h1 {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+            .wishlist-item {
+                padding: 10px 8px;
+            }
+            .wishlist-item img {
+                width: 100px;
+                height: 100px;
+            }
+            .wishlist-item-details h3 { font-size: 1.1rem; }
+            .price { font-size: 1.1rem; }
+            .variant-info { font-size: 0.8rem; }
+        }
+
+        @media (hover: none) {
+            .wishlist-item:hover { transform: none; }
+            .move-to-cart:active,
+            .remove-from-wishlist:active {
+                transform: scale(0.98);
+            }
+            .wishlist-item-actions button {
+                padding: 15px 25px;
+                margin: 8px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "My Wishlist - SHAH",
+        "description": "Manage your wishlist at SHAH - Pakistan's premier online store.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "SHAH",
+            "logo": "https://shah.com/images/shah-logo.png"
+        },
+        "url": "https://shah.com/wishlist"
+    }
+    </script>
+
+    <header role="banner">
+        <nav role="navigation">
+            <div class="logo" aria-label="SHAH Store Logo">SHAH</div>
+        </nav>
+    </header>
+
+    <div id="toast" class="toast" role="alert" aria-live="polite">
+        <span class="toast-icon"></span>
+        <span class="toast-message"></span>
+        <div class="toast-progress"></div>
+    </div>
+
+    <main class="container mt-5" role="main">
+        <div class="page-header">
+            <h1>My Wishlist</h1>
+            <p class="lead text-center text-light">Save your favorite items and shop them later</p>
+        </div>
+        <section class="wishlist-items" aria-label="Wishlist Items"></section>
+    </main>
+
+    <footer role="contentinfo">
+        <div>
+            <h2 class="h6"><strong>Contact Us</strong></h2>
+            <p>Phone: <a href="tel:+92 331-4413 874" aria-label="Call us">+92 331-4413 874</a></p>
+            <p>Email: <a href="mailto:ahmarshah170@gmail.com" aria-label="Email us">ahmarshah170@gmail.com</a></p>
+            <p><a href="privacy-policy.html" aria-label="Privacy Policy">Privacy Policy</a> | <a href="terms-of-service.html" aria-label="Terms of Service">Terms of Service</a></p>
+        </div>
+        <div>
+            <h2 class="h6"><strong>About Us</strong></h2>
+            <p>We are Pakistan's leading online store offering high-quality products at affordable prices. Our mission is to make shopping convenient and accessible for everyone in Pakistan.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+
+            const showToast = (message, type = 'success') => {
+                const toast = document.getElementById('toast');
+                const icon = type === 'success' ? '✨' : '❌';
+                
+                toast.className = 'toast';
+                toast.classList.add(type);
+                
+                toast.querySelector('.toast-icon').textContent = icon;
+                toast.querySelector('.toast-message').textContent = message;
+                
+                toast.style.animation = 'none';
+                toast.offsetHeight;
+                
+                toast.style.display = 'flex';
+                toast.style.animation = 'slideIn 0.5s ease forwards';
+                
+                const progress = toast.querySelector('.toast-progress');
+                progress.style.animation = 'none';
+                progress.offsetHeight;
+                progress.style.animation = 'progress 3s linear';
+                
+                setTimeout(() => {
+                    toast.style.animation = 'fadeOut 0.5s ease forwards';
+                    setTimeout(() => {
+                        toast.style.display = 'none';
+                    }, 500);
+                }, 3000);
+            };
+
+            const updateWishlist = () => {
+                localStorage.setItem('wishlist', JSON.stringify(wishlist));
+                renderWishlist();
+            };
+
+            const renderWishlist = () => {
+                const wishlistContainer = document.querySelector('.wishlist-items');
+                wishlistContainer.innerHTML = '';
+                
+                if (wishlist.length === 0) {
+                    wishlistContainer.innerHTML = `
+                    <div class="text-center mt-4">
+                        <h2 class="h3">Your wishlist is empty</h2>
+                        <p class="text-light">Start adding items to your wishlist while shopping!</p>
+                    </div>`;
+                    return;
+                }
+
+                wishlist.forEach((item, index) => {
+                    const itemElement = document.createElement('article');
+                    itemElement.classList.add('wishlist-item');
+                    itemElement.setAttribute('data-item-id', item.id);
+                    itemElement.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}" loading="lazy">
+                        <div class="wishlist-item-details">
+                            <h2 class="h3">${item.name}</h2>
+                            <p class="variant-info">Size: ${item.size} | Color: ${item.color}</p>
+                            <p class="price" aria-label="Price in Pakistani Rupees">PKR ${item.price.toLocaleString()}</p>
+                        </div>
+                        <div class="wishlist-item-actions">
+                            <button class="move-to-cart" onclick="moveToCart(${index})" aria-label="Move ${item.name} to cart">Move to Cart</button>
+                            <button class="remove-from-wishlist" onclick="removeFromWishlist(${index})" aria-label="Remove ${item.name} from wishlist">Remove</button>
+                        </div>
+                    `;
+                    wishlistContainer.appendChild(itemElement);
+                });
+            };
+
+            window.moveToCart = (index) => {
+                const item = wishlist[index];
+                if (item) {
+                    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    const existingCartItemIndex = cart.findIndex(cartItem => 
+                        cartItem.variantId === item.variantId && 
+                        cartItem.size === item.size && 
+                        cartItem.color === item.color
+                    );
+
+                    if (existingCartItemIndex !== -1) {
+                        cart[existingCartItemIndex].quantity += 1;
+                    } else {
+                        cart.push({...item, quantity: 1});
+                    }
+
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    wishlist.splice(index, 1);
+                    updateWishlist();
+                    showToast('Item successfully added to your cart! ✨', 'success');
+                }
+            };
+
+            window.removeFromWishlist = (index) => {
+                wishlist.splice(index, 1);
+                updateWishlist();
+                showToast('Item removed from your wishlist', 'error');
+            };
+
+            renderWishlist();
+
+            document.querySelectorAll('button').forEach(button => {
+                button.addEventListener('touchstart', function() {
+                    this.style.transform = 'scale(0.98)';
+                });
+                
+                button.addEventListener('touchend', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+    
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+</body>
+</html>

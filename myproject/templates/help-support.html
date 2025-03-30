@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <title>Help & Support Center - SHAH Online Store | Customer Assistance</title>
+    <meta name="description" content="Get instant help and support for all your shopping needs at SHAH Online Store. Browse FAQs, troubleshooting guides, and contact our support team. 24/7 customer assistance available.">
+    <meta name="keywords" content="help center, customer support, FAQs, troubleshooting, SHAH store help, online shopping support, Pakistan customer service">
+    <meta name="author" content="SHAH">
+    <meta name="robots" content="index, follow">
+    
+    
+    <meta property="og:title" content="Help & Support Center - SHAH Online Store">
+    <meta property="og:description" content="Get instant help with your shopping experience at SHAH Online Store. Find answers to common questions and get support when you need it.">
+    <meta property="og:image" content="https://www.shahstore.com/images/help-support-banner.jpg">
+    <meta property="og:url" content="https://www.shahstore.com/help-support">
+    <meta property="og:type" content="website">
+    
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Help & Support Center - SHAH Online Store">
+    <meta name="twitter:description" content="Get instant help with your shopping experience at SHAH Online Store. 24/7 customer support available.">
+    <meta name="twitter:image" content="https://www.shahstore.com/images/help-support-banner.jpg">
+    
+    
+    <link rel="canonical" href="https://www.shahstore.com/help-support">
+    
+    
+    <link rel="icon" type="image/png" href="Images/static/favicon.png">
+    <link rel="apple-touch-icon" href="Images/static/favicon.png">
+
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{
+            "@type": "Question",
+            "name": "How to create an account?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Creating an account is easy. Click on the Sign Up button on the top right corner of the homepage, fill in your details, and submit the form. You will receive a confirmation email to verify your account."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How to track your order?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can track your order by logging into your account and navigating to the Orders section. Here, you will find the status of your order along with tracking information."
+            }
+        }]
+    }
+    </script>
+
+    
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1c1c1c;
+            color: #f8f8f8;
+            padding: 20px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-bottom: 2px solid #ff6347;
+        }
+
+        header .logo {
+            font-size: 26px;
+            font-weight: bold;
+            color: #ffffff;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        header .logo:hover {
+            color: #ff6347;
+            text-shadow: 0 0 25px rgba(255, 99, 71, 1);
+        }
+
+        footer {
+            background-color: #1c1c1c;
+            color: #e0e0e0;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            border-top: 2px solid #ff6347;
+        }
+
+        footer div {
+            flex: 1;
+            min-width: 150px;
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            font-size: 13px;
+            line-height: 1.5;
+            margin: 5px 0;
+        }
+
+        footer p a {
+            color: #ff6347;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer p a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        @media screen and (max-width: 768px) {
+            footer {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 15px 20px;
+            }
+
+            footer div {
+                margin-bottom: 10px;
+                width: 100%;
+            }
+        }
+
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #222;
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        main.container {
+            background-color: #333;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-header h1 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #ff6347;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .page-header h2 {
+            font-size: 24px;
+            color: #e0e0e0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-section, .troubleshooting-section {
+            margin-top: 40px;
+        }
+
+        .faq-section h2, .troubleshooting-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #ff6347;
+            text-align: center;
+            position: relative;
+        }
+
+        .faq-section h2::after, .troubleshooting-section h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #ff6347;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .faq-item, .troubleshooting-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #444;
+            padding-bottom: 15px;
+        }
+
+        .faq-item h3, .troubleshooting-item h3 {
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+
+        .faq-item h3:hover, .troubleshooting-item h3:hover {
+            color: #ff6347;
+        }
+
+        .faq-item p, .troubleshooting-item p {
+            display: none;
+            margin-top: 10px;
+            font-size: 16px;
+            color: #e0e0e0;
+        }
+
+        .faq-item.active p, .troubleshooting-item.active p {
+            display: block;
+        }
+
+        .faq-item.active h3::after, .troubleshooting-item.active h3::after {
+            content: '-';
+        }
+
+        .faq-item h3::after, .troubleshooting-item h3::after {
+            content: '+';
+            font-size: 20px;
+            color: #ff6347;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active h3::after, .troubleshooting-item.active h3::after {
+            transform: rotate(45deg);
+        }
+
+        .troubleshooting-section {
+            background-color: #2a2a2a;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .troubleshooting-item {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .troubleshooting-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header role="banner">
+        <nav role="navigation" aria-label="Main navigation">
+            <div class="logo">SHAH</div>
+        </nav>
+    </header>
+
+    <main role="main" class="container mt-5">
+        <div class="page-header">
+            <h1>Help & Support Center</h1>
+            <p class="lead">Get instant assistance with your shopping experience at SHAH Online Store</p>
+        </div>
+
+        
+        <section class="faq-section" aria-labelledby="faq-title">
+            <h2 id="faq-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-list" role="list">
+                
+                <div class="faq-item" role="listitem">
+                    <h3 onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">
+                        How to create an account?
+                    </h3>
+                    <div class="faq-answer" role="region" aria-hidden="true">
+                        <p>Creating an account is easy. Click on the Sign Up button on the top right corner of the homepage, fill in your details, and submit the form. You will receive a confirmation email to verify your account.</p>
+                    </div>
+                </div>
+                <div class="faq-item" role="listitem">
+                    <h3 onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">
+                        How to reset your password?
+                    </h3>
+                    <div class="faq-answer" role="region" aria-hidden="true">
+                        <p>If you have forgotten your password, click on the Forgot Password link on the login page. Enter your registered email address, and we will send you a link to reset your password.</p>
+                    </div>
+                </div>
+                <div class="faq-item" role="listitem">
+                    <h3 onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">
+                        Updating your account details
+                    </h3>
+                    <div class="faq-answer" role="region" aria-hidden="true">
+                        <p>To update your account details, log into your account and navigate to the Profile section. Here, you can edit your details and save the changes.</p>
+                    </div>
+                </div>
+                <div class="faq-item" role="listitem">
+                    <h3 onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">
+                        How to place an order?
+                    </h3>
+                    <div class="faq-answer" role="region" aria-hidden="true">
+                        <p>To place an order, simply browse our products, add your desired items to the cart, and proceed to checkout. You will need to provide your shipping details and select a payment method. Once your order is confirmed, you will receive an email with the order details.</p>
+                    </div>
+                </div>
+                <div class="faq-item" role="listitem">
+                    <h3 onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">
+                        How to track your order?
+                    </h3>
+                    <div class="faq-answer" role="region" aria-hidden="true">
+                        <p>You can track your order by logging into your account and navigating to the Orders section. Here, you will find the status of your order along with tracking information. If you have any issues, please contact our support team.</p>
+                    </div>
+                </div>
+                <div class="faq-item" role="listitem">
+                    <h3 onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">
+                        Modifying or canceling an order
+                    </h3>
+                    <div class="faq-answer" role="region" aria-hidden="true">
+                        <p>If you need to modify or cancel your order, please contact our support team as soon as possible. We will do our best to accommodate your request, but please note that changes may not be possible once the order has been processed.</p>
+                    </div>
+                </div>
+                <div class="faq-item" role="listitem">
+                    <h3 onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">
+                        Supported payment methods
+                    </h3>
+                    <div class="faq-answer" role="region" aria-hidden="true">
+                        <p>We accept various payment methods including credit/debit cards, PayPal, and bank transfers. You can select your preferred payment method during the checkout process.</p>
+                    </div>
+                </div>
+                <div class="faq-item" role="listitem">
+                    <h3 onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">
+                        Troubleshooting payment issues
+                    </h3>
+                    <div class="faq-answer" role="region" aria-hidden="true">
+                        <p>If you encounter any issues with your payment, please check your card details and ensure you have sufficient funds. If the problem persists, contact your bank or our support team for assistance.</p>
+                    </div>
+                </div>
+                <div class="faq-item" role="listitem">
+                    <h3 onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">
+                        Refunds & payment disputes
+                    </h3>
+                    <div class="faq-answer" role="region" aria-hidden="true">
+                        <p>Our refund policy allows you to request a refund within 30 days of purchase. To initiate a refund, contact our support team with your order details. Refunds will be processed within 5-7 business days.</p>
+                    </div>
+                </div>
+                <div class="faq-item" role="listitem">
+                    <h3 onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">
+                        Estimated delivery times
+                    </h3>
+                    <div class="faq-answer" role="region" aria-hidden="true">
+                        <p>Estimated delivery times vary based on your location and the shipping method selected. Standard shipping typically takes 5-7 business days, while express shipping takes 2-3 business days.</p>
+                    </div>
+                </div>
+                <div class="faq-item" role="listitem">
+                    <h3 onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">
+                        Delivery policies & options
+                    </h3>
+                    <div class="faq-answer" role="region" aria-hidden="true">
+                        <p>We offer various delivery options to suit your needs. During checkout, you can select your preferred delivery method. Please note that delivery times may vary based on your location and the selected method.</p>
+                    </div>
+                </div>
+                <div class="faq-item" role="listitem">
+                    <h3 onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">
+                        Shipping costs
+                    </h3>
+                    <div class="faq-answer" role="region" aria-hidden="true">
+                        <p>Shipping costs are calculated based on the weight of your order and the shipping method selected. We offer free shipping on orders above a certain amount. Check our shipping policy for details.</p>
+                    </div>
+                </div>
+                <div class="faq-item" role="listitem">
+                    <h3 onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">
+                        How to return an item?
+                    </h3>
+                    <div class="faq-answer" role="region" aria-hidden="true">
+                        <p>Our return policy allows you to return products within 30 days of purchase. The items must be in their original condition and packaging. Contact our support team to initiate a return.</p>
+                    </div>
+                </div>
+                <div class="faq-item" role="listitem">
+                    <h3 onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">
+                        Refund or exchange process
+                    </h3>
+                    <div class="faq-answer" role="region" aria-hidden="true">
+                        <p>To request a refund or exchange, contact our support team with your order details. Once your return is received and inspected, we will process your refund or exchange within 5-7 business days.</p>
+                    </div>
+                </div>
+                <div class="faq-item" role="listitem">
+                    <h3 onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">
+                        Return policy details
+                    </h3>
+                    <div class="faq-answer" role="region" aria-hidden="true">
+                        <p>Our return policy allows you to return products within 30 days of purchase. The items must be in their original condition and packaging. Contact our support team to initiate a return.</p>
+                    </div>
+                </div>
+                <div class="faq-item" role="listitem">
+                    <h3 onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">
+                        How to use the search bar?
+                    </h3>
+                    <div class="faq-answer" role="region" aria-hidden="true">
+                        <p>To use the search bar, simply enter keywords related to the product you are looking for. The search bar will display relevant results as you type. Click on a result to view the product details.</p>
+                    </div>
+                </div>
+                <div class="faq-item" role="listitem">
+                    <h3 onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">
+                        How to filter products?
+                    </h3>
+                    <div class="faq-answer" role="region" aria-hidden="true">
+                        <p>To filter products, use the filter options available on the product listing page. You can filter products by category, price, rating, and more. Select your desired filters and the product list will update accordingly.</p>
+                    </div>
+                </div>
+                <div class="faq-item" role="listitem">
+                    <h3 onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">
+                        How to sort products?
+                    </h3>
+                    <div class="faq-answer" role="region" aria-hidden="true">
+                        <p>To sort products, use the sort options available on the product listing page. You can sort products by price, name, rating, and more. Select your desired sort option and the product list will update accordingly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="troubleshooting-section" aria-labelledby="troubleshooting-title">
+            <h2 id="troubleshooting-title">Troubleshooting</h2>
+            <div class="troubleshooting-list" role="list">
+                
+                <div class="troubleshooting-item" role="listitem">
+                    <h3 onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">
+                        Browser compatibility issues
+                    </h3>
+                    <div class="faq-answer" role="region" aria-hidden="true">
+                        <p>Ensure your browser is up to date. Clear your cache and cookies, and try accessing the site again. If the issue persists, try using a different browser.</p>
+                    </div>
+                </div>
+                <div class="troubleshooting-item" role="listitem">
+                    <h3 onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">
+                        Login problems
+                    </h3>
+                    <div class="faq-answer" role="region" aria-hidden="true">
+                        <p>Check if your email and password are correct. If you forgot your password, use the 'Forgot Password' link to reset it. Ensure your internet connection is stable.</p>
+                    </div>
+                </div>
+                <div class="troubleshooting-item" role="listitem">
+                    <h3 onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">
+                        Payment gateway errors
+                    </h3>
+                    <div class="faq-answer" role="region" aria-hidden="true">
+                        <p>Verify your card details and ensure you have sufficient funds. If the problem persists, contact your bank or try using a different payment method.</p>
+                    </div>
+                </div>
+                <div class="troubleshooting-item" role="listitem">
+                    <h3 onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">
+                        Slow website loading time
+                    </h3>
+                    <div class="faq-answer" role="region" aria-hidden="true">
+                        <p>Clear your browser cache and cookies. Ensure you have a stable internet connection. Try accessing the site during off-peak hours for better performance.</p>
+                    </div>
+                </div>
+                <div class="troubleshooting-item" role="listitem">
+                    <h3 onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">
+                        Cart or checkout problems
+                    </h3>
+                    <div class="faq-answer" role="region" aria-hidden="true">
+                        <p>Ensure all required fields are filled out correctly. Clear your browser cache and cookies. If the issue persists, try using a different browser or device.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+     
+     <footer role="contentinfo">
+        <div>
+            <p><strong>Contact Us</strong></p>
+            <p>Phone: <a href="tel:+92 331-4413 874"> +92 331-4413 874 </a></p>
+            <p>Email: <a href="mailto:ahmarshah170@gmail.com">ahmarshah170@gmail.com</a></p>
+            <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a></p>
+        </div>
+        <div>
+            <p><strong>About Us</strong></p>
+            <p>We are Pakistan's leading online store offering high-quality products at affordable prices. Our mission is to make shopping convenient and accessible for everyone in Pakistan.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script>
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            const answer = faqItem.querySelector('.faq-answer');
+            const isExpanded = element.getAttribute('aria-expanded') === 'true';
+            
+            element.setAttribute('aria-expanded', !isExpanded);
+            answer.setAttribute('aria-hidden', isExpanded);
+            faqItem.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

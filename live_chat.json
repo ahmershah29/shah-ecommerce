@@ -1,0 +1,76 @@
+{
+    "chatConfig": {
+        "name": "SHAH Live Chat",
+        "version": "1.0.0",
+        "description": "Live chat support for SHAH Online Store",
+        "supportedLanguages": ["en", "ur"],
+        "defaultLanguage": "en",
+        "operatingHours": "24/7",
+        "supportEmail": "support@shahstore.com",
+        "supportPhone": "+92 331-4413 874"
+    },
+    "quickReplies": [
+        {
+            "id": "track-order",
+            "icon": "📦",
+            "text": "Track Order",
+            "fullText": "Track My Order"
+        },
+        {
+            "id": "payments",
+            "icon": "💳",
+            "text": "Payments",
+            "fullText": "Payment & Refunds"
+        },
+        {
+            "id": "shipping",
+            "icon": "🚚",
+            "text": "Shipping",
+            "fullText": "Shipping & Delivery"
+        },
+        {
+            "id": "returns",
+            "icon": "🔄",
+            "text": "Returns",
+            "fullText": "Returns & Exchanges"
+        },
+        {
+            "id": "orders",
+            "icon": "🛒",
+            "text": "Orders",
+            "fullText": "Order Assistance"
+        },
+        {
+            "id": "account",
+            "icon": "👤",
+            "text": "Account",
+            "fullText": "Account & Login Help"
+        },
+        {
+            "id": "email",
+            "icon": "📧",
+            "text": "Email",
+            "fullText": "Contact via Email"
+        },
+        {
+            "id": "whatsapp",
+            "icon": "📱",
+            "text": "WhatsApp",
+            "fullText": "Contact via WhatsApp"
+        }
+    ],
+    "defaultResponses": {
+        "greeting": "Hi there! 👋 How can we assist you today? Select an option or type your query.",
+        "offline": "You are currently offline. Please check your internet connection.",
+        "noScript": "Please enable JavaScript to use our live chat support. Alternatively, you can contact us at support@shahstore.com"
+    },
+    "theme": {
+        "primary": "#ff6347",
+        "secondary": "#3498db",
+        "background": "#222",
+        "backgroundDarker": "#1c1c1c",
+        "text": "#e0e0e0",
+        "border": "rgba(255, 99, 71, 0.1)",
+        "shadow": "rgba(255, 99, 71, 0.2)"
+    }
+}

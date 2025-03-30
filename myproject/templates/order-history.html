@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order History & Tracking - SHAH Online Store</title>
+    <meta name="description" content="Track your orders and view order history at SHAH Online Store. Real-time updates and order management for your purchases.">
+    
+    
+    
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --royal-primary: #ff6347;
+            --royal-secondary: #3498db;
+            --royal-bg-dark: #222;
+            --royal-bg-darker: #1c1c1c;
+            --royal-text: #e0e0e0;
+            --royal-border: rgba(255, 99, 71, 0.1);
+            --royal-shadow: rgba(255, 99, 71, 0.2);
+        }
+
+        
+        [data-bs-theme=dark] {
+            --bs-body-color: var(--royal-text);
+            --bs-body-bg: var(--royal-bg-dark);
+            --bs-primary: var(--royal-primary);
+            --bs-border-color: var(--royal-border);
+        }
+
+        
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--royal-bg-dark);
+            color: var(--royal-text);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--royal-bg-darker);
+            color: #f8f8f8;
+            padding: 20px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-bottom: 2px solid var(--royal-primary);
+        }
+
+        
+        header .logo {
+            font-size: 26px;
+            font-weight: bold;
+            color: #ffffff;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        header .logo:hover {
+            color: var(--royal-primary);
+            text-shadow: 0 0 25px rgba(255, 99, 71, 1);
+        }
+
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--royal-primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+        }
+
+        h1::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--royal-primary);
+            margin: 10px auto 0;
+            border-radius: 2px;
+            opacity: 0.9;
+        }
+
+        h1 {
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+                letter-spacing: 1.5px;
+            }
+
+            h1::after {
+                width: 60px;
+            }
+        }
+
+        
+        .order-card {
+            background: var(--royal-bg-darker);
+            border: 2px solid var(--royal-primary);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px var(--royal-shadow);
+            max-width: 800px;
+            width: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .order-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px var(--royal-shadow);
+        }
+
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .order-status {
+            font-weight: 700;
+            color: var(--royal-primary);
+            text-transform: uppercase;
+        }
+
+        .tracking-timeline {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .tracking-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tracking-step.active .step-icon {
+            background: var(--royal-primary);
+            color: white;
+        }
+
+        .step-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #ddd;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .tracking-timeline::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 10%;
+            right: 10%;
+            height: 3px;
+            background: #ddd;
+        }
+
+        .order-details {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .order-product {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background: #444;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .order-product:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px var(--royal-shadow);
+        }
+
+        .order-product img {
+            width: 60px;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .total-section {
+            text-align: center;
+            background-color: #444;
+            padding: 30px;
+            border: 2px solid var(--royal-primary);
+            border-radius: 12px;
+            margin-top: 20px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--royal-text);
+            box-shadow: 0 4px 8px var(--royal-shadow);
+        }
+
+        .total-section::before {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 4px;
+            background-color: var(--royal-primary);
+            margin: 0 auto 15px;
+            border-radius: 2px;
+        }
+
+        
+        footer {
+            background-color: var(--royal-bg-darker);
+            color: var(--royal-text);
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            border-top: 2px solid var(--royal-primary);
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer div {
+            flex: 1;
+            min-width: 150px;
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            font-size: 13px;
+            line-height: 1.5;
+            margin: 5px 0;
+        }
+
+        footer p a {
+            color: var(--royal-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer p a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        footer .social-icons {
+            display: flex;
+            justify-content: flex-start;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        footer .social-icons a {
+            color: var(--royal-primary);
+            font-size: 18px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        footer .social-icons a:hover {
+            color: #fff;
+            transform: scale(1.2);
+        }
+
+        footer .social-icons a {
+            background-color: #333;
+            padding: 8px;
+            border-radius: 50%;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        footer .social-icons a:hover {
+            background-color: var(--royal-primary);
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        @media screen and (max-width: 768px) {
+            footer {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 15px 20px;
+            }
+
+            footer div {
+                margin-bottom: 10px;
+                width: 100%;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <header role="banner">
+        <nav role="navigation" aria-label="Main navigation">
+            <div class="logo">SHAH</div>
+        </nav>
+    </header>
+
+    <main role="main" class="main-content">
+        <h1>Order History & Tracking</h1>
+
+        
+        <section class="order-card">
+            <div class="order-header">
+                <div>
+                    <h3>Order #SH123456</h3>
+                    <p>Date: 15 March 2024</p>
+                </div>
+                <div class="order-status">In Transit</div>
+            </div>
+
+            
+            <div class="tracking-timeline">
+                <div class="tracking-step active">
+                    <div class="step-icon">✓</div>
+                    <div>Ordered</div>
+                </div>
+                <div class="tracking-step active">
+                    <div class="step-icon">🔄</div>
+                    <div>Processed</div>
+                </div>
+                <div class="tracking-step active">
+                    <div class="step-icon">🚚</div>
+                    <div>Shipped</div>
+                </div>
+                <div class="tracking-step">
+                    <div class="step-icon">📦</div>
+                    <div>Delivered</div>
+                </div>
+            </div>
+
+            
+            <div class="order-details">
+                <div class="order-product">
+                    <img src="Images/New Arrivals/4.jpg" alt="Product Name">
+                    <div>
+                        <h4>Product Name 1</h4>
+                        <p>PKR 2,499 x 2</p>
+                    </div>
+                </div>
+                <div class="order-product">
+                    <img src="Images/New Arrivals/6.jpg" alt="Product Name">
+                    <div>
+                        <h4>Product Name 2</h4>
+                        <p>PKR 3,999 x 1</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="total-section" style="margin-top: 20px;">
+                <p>Total Paid: PKR 6,997</p>
+            </div>
+        </section>
+
+        
+
+        
+        <div id="cart-items"></div>
+        <div id="total-price"></div>
+
+        
+        <div id="product-list"></div>
+    </main>
+
+    
+    <footer role="contentinfo">
+        <div>
+            <p><strong>Contact Us</strong></p>
+            <p>Phone: <a href="tel:+92 331-4413 874"> +92 331-4413 874 </a></p>
+            <p>Email: <a href="mailto:ahmarshah170@gmail.com">ahmarshah170@gmail.com</a></p>
+            <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a></p>
+        </div>
+        <div>
+            <p><strong>About Us</strong></p>
+            <p>We are Pakistan's leading online store offering high-quality products at affordable prices. Our mission is to make shopping convenient and accessible for everyone in Pakistan.</p>
+        </div>
+    </footer>
+
+    
+    <script>
+
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+
+
+        function addToCart(product) {
+            const existingProduct = cart.find(item => item.name === product.name);
+
+            if (existingProduct) {
+                existingProduct.quantity += 1; // Increase quantity if product already in cart
+            } else {
+                cart.push({ ...product, quantity: 1 }); // Add product with quantity 1 if it's not in cart
+            }
+
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartDisplay();
+        }
+
+
+        function updateCartDisplay() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const totalPriceElement = document.getElementById('total-price');
+            
+            if (!cartItemsContainer || !totalPriceElement) {
+                console.error('Cart items container or total price element not found.');
+                return;
+            }
+
+
+            cartItemsContainer.innerHTML = '';
+            totalPriceElement.innerHTML = ''; // Clear total price element
+
+            let totalPrice = 0;
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div style="text-align: center; padding: 20px; background: var(--royal-bg-darker); border-radius: 10px; box-shadow: 0 4px 10px var(--royal-shadow);">
+                        <h2 style="color: var(--royal-primary);">Your Cart is Empty</h2>
+                        <p style="color: var(--royal-text);">Looks like you haven't added anything to your cart yet.</p>
+                        <a href="index.html" style="display: inline-block; margin-top: 20px; padding: 10px 20px; background: var(--royal-primary); color: #fff; border-radius: 5px; text-decoration: none; transition: background 0.3s ease;">Start Shopping</a>
+                    </div>
+                `;
+            } else {
+                cart.forEach(item => {
+                    const cartItem = document.createElement('div');
+                    cartItem.classList.add('cart-item');
+                    cartItem.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}">
+                        <div class="cart-item-details">
+                            <h3>${item.name}</h3>
+                            <p class="variant-info">Size: ${item.size} | Color: ${item.color}</p>
+                            <p>PKR ${item.price} x ${item.quantity}</p>
+                            <div>
+                                <button class="increase" onclick="changeQuantity('${item.variantId}', 1)">+</button>
+                                <button class="decrease" onclick="changeQuantity('${item.variantId}', -1)">-</button>
+                                <button class="remove" onclick="removeItem('${item.variantId}')">Remove</button>
+                            </div>
+                        </div>
+                    `;
+                    cartItemsContainer.appendChild(cartItem);
+                    totalPrice += item.price * item.quantity;
+                });
+
+                totalPriceElement.textContent = totalPrice.toLocaleString();
+            }
+        }
+
+
+        function changeQuantity(variantId, change) {
+            const product = cart.find(item => item.variantId === variantId);
+            if (product) {
+                product.quantity += change;
+                if (product.quantity <= 0) {
+                    removeItem(variantId); // Remove item if quantity goes to 0
+                } else {
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateCartDisplay(); // Update cart display after changing quantity
+                }
+            }
+        }
+
+
+        function removeItem(variantId) {
+            cart = cart.filter(item => item.variantId !== variantId);
+            localStorage.setItem('cart', JSON.stringify(cart)); // Update cart in localStorage
+            updateCartDisplay(); // Update cart display after removal
+        }
+
+
+        function clearCart() {
+            if (confirm('Are you sure you want to clear your cart?')) {
+
+                cart = [];
+
+                localStorage.removeItem('cart');
+
+                updateCartDisplay();
+            }
+        }
+
+
+        function displayProducts() {
+            const productListContainer = document.getElementById('product-list');
+            const products = JSON.parse(localStorage.getItem('products')) || []; // Get the list of products added by the user (from e-commerce site)
+            
+            if (!productListContainer) {
+                console.error('Product list container not found.');
+                return;
+            }
+
+
+            productListContainer.innerHTML = '';
+
+
+            products.forEach((product) => {
+                const productElement = document.createElement('div');
+                productElement.classList.add('product-item');
+                productElement.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <p>${product.name} - PKR ${product.price}</p>
+                    <button class="add-to-cart" onclick="addToCart(product)">Add to Cart</button>
+                `;
+                productListContainer.appendChild(productElement);
+            });
+        }
+
+
+        updateCartDisplay();
+        displayProducts();
+    </script>
+</body>
+</html>
